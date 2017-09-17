@@ -15,7 +15,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.8;
-  color: #777;
+  color: #fff;
   background: #585859;
 }
 
@@ -24,6 +24,11 @@ body {
   font-weight: 600;
   text-shadow: 4px 4px 4px #000000;
   font-family: "arial";
+}
+
+#header {
+  font-size: 45px;
+  text-shadow: 1px 1px 1px #000000;
 }
 
 #page {
@@ -502,7 +507,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 #gtco-about,
 #gtco-gallery,
-#gtco-founders,
+#gtco-our-team,
 #gtco-contact {
   padding: 7em 0;
   clear: both;
@@ -571,10 +576,10 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 24px;
 }
 
-#gtco-founders .heading {
+#gtco-our-team .heading {
   position: relative;
 }
-#gtco-founders .heading .subtle-text {
+#gtco-our-team .heading .subtle-text {
   position: absolute;
   bottom: -1.6em;
   left: 0;
@@ -585,30 +590,30 @@ h1, h2, h3, h4, h5, h6, figure {
   z-index: -1;
   line-height: 1;
 }
-#gtco-founders .heading .subtle-text span {
+#gtco-our-team .heading .subtle-text span {
   display: block;
 }
-#gtco-founders .team-item {
+#gtco-our-team .team-item {
   margin-bottom: 9em;
 }
-#gtco-founders .team-item:last-child {
+#gtco-our-team .team-item:last-child {
   margin-bottom: 0;
 }
-#gtco-founders .gtco-team-reverse .img-shadow,
-#gtco-founders .gtco-team .img-shadow {
+#gtco-our-team .gtco-team-reverse .img-shadow,
+#gtco-our-team .gtco-team .img-shadow {
   position: relative;
   background: #1c407a;
   width: 100%;
   float: left;
   margin-bottom: 30px;
 }
-#gtco-founders .gtco-team-reverse .img-shadow img,
-#gtco-founders .gtco-team .img-shadow img {
+#gtco-our-team .gtco-team-reverse .img-shadow img,
+#gtco-our-team .gtco-team .img-shadow img {
   position: relative;
   top: -20px;
   right: -20px;
 }
-#gtco-founders .gtco-team .img-shadow img {
+#gtco-our-team .gtco-team .img-shadow img {
   top: -20px;
   left: -20px;
 }
@@ -663,7 +668,7 @@ h1, h2, h3, h4, h5, h6, figure {
   position: relative;
   padding-bottom: 40px;
   font-size: 18px;
-  color: #757575;
+  color: #fff;
 }
 .heading .sub:after {
   bottom: 0;
@@ -678,6 +683,8 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .heading-colored {
   color: #1c407a;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000000;
 }
 
 .read-more i {
@@ -1304,5 +1311,302 @@ form label {
 .js .animate-box {
   opacity: 0;
 }
+
+/* Gallery */
+
+#gallery img {
+  max-height: 300px;
+}
+
+#gallery [class*='col-'] {
+  padding: 0;
+}
+
+#gallery a {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+#gallery a:hover img {
+  opacity: 0.15;
+  -moz-backface-visibility: hidden;
+}
+
+#gallery a:before {
+  font-size: 2.2em;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  content: "+";
+  width: 70px;
+  height: 70px;
+  border-radius: 100em;
+  display: block;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  line-height: 72px;
+  margin: -35px 0 0 -35px;
+  opacity: 0;
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  transition: all .2s linear;
+  vertical-align: middle;
+}
+
+#gallery a:hover:before {
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+}
+
+/**
+* Featherlight – ultra slim jQuery lightbox
+* Version 1.3.3 - http://noelboss.github.io/featherlight/
+**/
+@media all {
+  .featherlight {
+      display: none;
+
+      /* dimensions: spanning the background from edge to edge */
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2147483647; /* z-index needs to be >= elements on the site. */
+
+      /* position: centering content */
+      text-align: center;
+
+      /* insures that the ::before pseudo element doesn't force wrap with fixed width content; */
+      white-space: nowrap;
+
+      /* styling */
+      cursor: pointer;
+      background: #333;
+      /* IE8 "hack" for nested featherlights */
+      background: rgba(0, 0, 0, 0);
+  }
+
+  /* support for nested featherlights. Does not work in IE8 (use JS to fix) */
+  .featherlight:last-of-type {
+      background: rgba(0, 0, 0, 0.8);
+  }
+
+  .featherlight:before {
+      /* position: trick to center content vertically */
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -0.25em;
+  }
+
+  .featherlight .featherlight-content {
+
+      /* position: centering vertical and horizontal */
+      text-align: left;
+      vertical-align: middle;
+      display: inline-block;
+
+      /* dimensions: cut off images */
+      overflow: auto;
+      padding: 25px 0;
+      border-bottom: 25px solid transparent;
+
+      /* dimensions: handling small or empty content */
+      min-width: 30%;
+
+      /* dimensions: handling large content */
+      margin-left: 5%;
+      margin-right: 5%;
+      max-height: 95%;
+
+      /* styling */
+      cursor: auto;
+
+      /* reset white-space wrapping */
+      white-space: normal;
+  }
+
+  /* contains the content */
+  .featherlight .featherlight-inner {
+      /* make sure its visible */
+      display: block;
+  }
+
+  .featherlight .featherlight-close-icon {
+      /* position: centering vertical and horizontal */
+      position: absolute;
+      z-index: 9999;
+      top: 25px;
+      right: 25px;
+
+      /* dimensions: 25px x 25px */
+      line-height: 25px;
+      width: 25px;
+
+      /* styling */
+      cursor: pointer;
+      text-align: center;
+      color: #fff;
+      font-family: "fontawesome";
+      font-size: 22px;
+      opacity: 0.5;
+      -webkit-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+  }
+
+  .featherlight .featherlight-close-icon:hover {
+      opacity: 1;
+  }
+
+  .featherlight .featherlight-image {
+      /* styling */
+      max-height: 100%;
+      max-width:100%;
+  }
+
+  .featherlight-iframe .featherlight-content {
+      /* removed the border for image croping since iframe is edge to edge */
+      border-bottom: 0;
+      padding: 0;
+  }
+
+  .featherlight iframe {
+      /* styling */
+      border: none;
+  }
+}
+
+/* handling phones and small screens */
+@media only screen and (max-width: 1024px) {
+  .featherlight .featherlight-content {
+      /* dimensions: maximize lightbox with for small screens */
+      margin-left: 10px;
+      margin-right: 10px;
+      max-height: 98%;
+
+      padding: 10px 10px 0;
+      border-bottom: 10px solid transparent;
+  }
+
+}
+
+/* Gallery Styling */
+@media all {
+  .featherlight-next,
+  .featherlight-previous {
+      font-family: "fontawesome";
+      font-size: 22px;
+      display: block;
+      position: absolute;
+      top: 25px;
+      right: 0;
+      bottom: 0;
+      left: 80%;
+      cursor: pointer;
+      /* preventing text selection */
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      /* IE9 hack, otherwise navigation doesn't appear */
+      background: rgba(0, 0, 0, 0);
+      -webkit-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+  }
+
+  .featherlight-previous {
+      left: 0;
+      right: 80%;
+  }
+
+  .featherlight-next span,
+  .featherlight-previous span {
+      display: inline-block;
+      opacity: 0.3;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      font-size: 80px;
+      line-height: 80px;
+
+      /* center vertically */
+      margin-top: -40px;
+      color: #fff;
+      font-style: normal;
+      font-weight: normal;
+      -webkit-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+  }
+
+  .featherlight-next span {
+      text-align: right;
+      left: auto;
+      right: 7%;
+  }
+
+  .featherlight-previous span {
+      text-align: left;
+      left: 7%;
+  }
+
+  .featherlight-next:hover span,
+  .featherlight-previous:hover span {
+      display: inline-block;
+      opacity: 1;
+  }
+
+  /* Hide navigation while loading */
+  .featherlight-loading .featherlight-previous, .featherlight-loading .featherlight-next {
+      display: none;
+  }
+}
+
+/* Always display arrows on touch devices */
+@media only screen and (max-device-width: 1024px) {
+  .featherlight-next:hover,
+  .featherlight-previous:hover {
+      background: none;
+  }
+
+  .featherlight-next span,
+  .featherlight-previous span {
+      display: block;
+  }
+}
+
+/* handling phones and small screens */
+@media only screen and (max-width: 1024px) {
+  .featherlight-next,
+  .featherlight-previous {
+      top: 10px;
+      right: 10px;
+      left: 85%;
+  }
+
+  .featherlight-previous {
+      left: 10px;
+      right: 85%;
+  }
+
+  .featherlight-next span,
+  .featherlight-previous span {
+      margin-top: -30px;
+      font-size: 40px;
+  }
+}
+
 
 /*# sourceMappingURL=style.css.map */
